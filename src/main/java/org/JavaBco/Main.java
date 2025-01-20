@@ -7,19 +7,13 @@ import java.sql.Connection;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+
+            DatabaseConnection.testarConexao();
+            CrudDataBase.createDatabase();
 
 
-        try {
 
-            Connection conn = DatabaseConnection.getConexao();
-            System.out.println("Conexão bem-sucedida");
-
-        } catch (SQLException e) {
-
-            System.out.println("Erro ao conectar: " + e.getMessage());
-
-        }
 
     }
 }
