@@ -7,8 +7,9 @@ public class CrudDataBase extends DatabaseConnection {
 
 
     public static void createDatabase() throws SQLException { // ADICIONAR INFORMAÇÕES NO BANCO
-        Connection conn = getConexao();
-        DatabaseConnection.testarConexao();
+       // Connection conn = getConexao();
+        //DatabaseConnection.testarConexao();
+        teste123
 
     }
     public static void readDataBase(){ // VER OS ARQUIVOS NO BANCO
