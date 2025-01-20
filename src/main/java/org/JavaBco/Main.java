@@ -9,11 +9,14 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
 
-            DatabaseConnection.testarConexao();
-            CrudDataBase.createDatabase();
+
+            CrudDataBase.createDatabase("products");
+
+
 
 
 
 
     }
 }
+

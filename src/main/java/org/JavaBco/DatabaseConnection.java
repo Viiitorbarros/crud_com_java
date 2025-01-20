@@ -18,7 +18,7 @@ public class DatabaseConnection {
         try (Connection conn = getConexao()) {
 
             if (conn != null) {
-                System.out.printf("Conexão bem-sucedida");
+                System.out.printf("Conexão bem-sucedida\n");
             }
 
         } catch (SQLException e) {
