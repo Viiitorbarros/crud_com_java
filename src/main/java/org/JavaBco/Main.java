@@ -10,12 +10,8 @@ public class Main {
     public static void main(String[] args) throws SQLException {
 
 
-            CrudDataBase.createDatabase("products");
-
-
-
-
-
+            CrudDataBase.readDataBase("products");
+            //CrudDataBase.AddData("products", 11, "Sabão em Pó", 5.90,"Limpeza" );
 
     }
 }
