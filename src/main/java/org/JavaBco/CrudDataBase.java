@@ -90,14 +90,37 @@ public class CrudDataBase extends DatabaseConnection {
         }
     }
 
-    public static void UpdateDataBase(){ // MODIFICAR OS ARQUIVOS DO BANCO
+    public static void UpdateDataBase(String tabela, int id , String nome , double preco, String categoria){ // MODIFICAR OS ARQUIVOS DO BANCO
+
+        String query = "UPDATE " + tabela + " SET nome = ?, preco = ?, categoria = ? WHERE id = ?";
+
+        try (Connection conn = getConexao();
+        PreparedStatement stmt = conn.prepareStatement(query) ){
+
+            stmt.setString(1,nome);
+            stmt.setDouble(2,preco);
+            stmt.setString(3,categoria);
+            stmt.setInt(4,id);
+
+            int rowsAffected = stmt.executeUpdate(); // Retorna o número de linhas afetadas essa é a função do executeUptade
+
+            if (rowsAffected > 0){
+
+                System.out.println("Registro atualizado com sucesso!");
+            }else {
+                System.out.println("Nenhum registro encontrado para atualizar.");
+            }
+
+
+        }catch (SQLException e) {
+
+            System.err.println("Erro ao atualizar o banco de dados: " + e.getMessage());
+
+        }
 
     }
     public static void deleteDataBase(){ // DELETAR ARQUIVOS NO  BANCO
 
     }
-
-
-
 
 }

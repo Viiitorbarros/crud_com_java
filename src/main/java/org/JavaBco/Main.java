@@ -12,6 +12,7 @@ public class Main {
 
             CrudDataBase.readDataBase("products");
             //CrudDataBase.AddData("products", 11, "Sabão em Pó", 5.90,"Limpeza" );
+            //CrudDataBase.UpdateDataBase("products",11, "Sabão em Pó", 22.90, "Limpeza");
 
     }
 }
