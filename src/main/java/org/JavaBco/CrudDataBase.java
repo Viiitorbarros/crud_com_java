@@ -57,8 +57,6 @@ public class CrudDataBase extends DatabaseConnection {
 
 
     }
-
-
     public static void AddData(String tabela, int id,String nome, double preco, String categoria){ // ADICIONA ARQUIVOS NO BANCO
 
         String query = "INSERT INTO " + tabela + " (id, nome, preco, categoria) VALUES (?,?,?,?)";  // Query para adiconar os produtos
@@ -89,7 +87,6 @@ public class CrudDataBase extends DatabaseConnection {
             System.out.println("Erro ao adicionar dados: " + e.getMessage());
         }
     }
-
     public static void UpdateDataBase(String tabela, int id , String nome , double preco, String categoria){ // MODIFICAR OS ARQUIVOS DO BANCO
 
         String query = "UPDATE " + tabela + " SET nome = ?, preco = ?, categoria = ? WHERE id = ?";
@@ -139,7 +136,7 @@ public class CrudDataBase extends DatabaseConnection {
 
         }catch (SQLException e){
 
-            System.out.printf("Não foi possivel delatar os dados selecionados: " + e.getMessage());
+            System.out.printf("Não foi possivel deletar os dados selecionados: " + e.getMessage());
 
         }
     }
