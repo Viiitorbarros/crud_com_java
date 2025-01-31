@@ -61,7 +61,7 @@ public class CrudDataBase extends DatabaseConnection {
 
     public static void AddData(String tabela, int id,String nome, double preco, String categoria){ // ADICIONA ARQUIVOS NO BANCO
 
-        String query = "INSERT INTO " + tabela + " (id, nome, preco, categoria) VALUES (?,? ?, ?)";  // Query para adiconar os produtos
+        String query = "INSERT INTO " + tabela + " (id, nome, preco, categoria) VALUES (?,?,?,?)";  // Query para adiconar os produtos
 
         // a conexão com o banco esta vindo de DatabaseConnection
         testarConexao(); // testa a conexao com o banco
@@ -119,8 +119,29 @@ public class CrudDataBase extends DatabaseConnection {
         }
 
     }
-    public static void deleteDataBase(){ // DELETAR ARQUIVOS NO  BANCO
+    public static void deleteData(String tabela, int id){ // DELETAR ARQUIVOS NO  BANCO pelo ID
 
+        String query = "DELETE FROM " + tabela + "  WHERE id = ?";
+
+        try(Connection conn = getConexao();
+        PreparedStatement stmt = conn.prepareStatement(query);){
+
+            stmt.setInt(1,id);
+
+            int rowsAffected = stmt.executeUpdate();
+
+            if (rowsAffected >0){
+                System.out.printf("Dados exluidos com sucesso");
+            }else {
+
+                System.out.printf("Error ao excluir Dados");
+            }
+
+        }catch (SQLException e){
+
+            System.out.printf("Não foi possivel delatar os dados selecionados: " + e.getMessage());
+
+        }
     }
 
 }
